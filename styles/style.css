@@ -77,7 +77,17 @@ h1 {
 .books {
     border: 3px dotted deepskyblue;
     border-radius: 12px;
+}
 
-    flex: 1;
-    flex-basis: 18%;
+dialog {
+    height: 95vh;
+    width: 97vw;
+    border: 0px;
+    margin: 0 auto;
+
+    background-color: rgba(112, 128, 144, 0.8);
+
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
 }
