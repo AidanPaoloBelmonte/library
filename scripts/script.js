@@ -119,7 +119,7 @@ function addBookDisplay() {
   pageCountString = `${lastBook.pageCount} pages`;
   readIcon = "./images/";
 
-  if (lastBook.read === "on") {
+  if (lastBook.read) {
     readIcon += "book-check.svg";
   } else {
     readIcon += "book-clock.svg";
