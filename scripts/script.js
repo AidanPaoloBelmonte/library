@@ -48,6 +48,9 @@ function Book(title, author, pageCount, read) {
   this.pageCount = pageCount;
   this.read = read;
   this.id = crypto.randomUUID();
+  this.toggleRead = () => {
+    this.read = !this.read;
+  };
 }
 
 function addToLibrary(name, author, pageCount, read) {
@@ -76,8 +79,8 @@ function toggleRead(e) {
   let status = false;
   for (let l = 0; l < myLibrary.length; l++) {
     if (myLibrary[l].id == bookID) {
-      status = !myLibrary[l].read;
-      myLibrary[l].read = status;
+      myLibrary[l].toggleRead();
+      status = myLibrary[l].read;
       break;
     }
   }
@@ -87,6 +90,8 @@ function toggleRead(e) {
   } else {
     button.setAttribute("src", "./images/book-clock.svg");
   }
+
+  console.log(status);
 }
 
 function addBookDisplay() {
@@ -119,6 +124,7 @@ function addBookDisplay() {
   pageCountString = `${lastBook.pageCount} pages`;
   readIcon = "./images/";
 
+  console.log(lastBook.read);
   if (lastBook.read) {
     readIcon += "book-check.svg";
   } else {
