@@ -19,11 +19,13 @@ confirmBookButton.addEventListener("click", (e) => {
 
   const bookForm = new FormData(newBookForm);
 
+  let readStatus = bookForm.get("read-status") == "on";
+
   addToLibrary(
     bookForm.get("title"),
     bookForm.get("author"),
     bookForm.get("page-count"),
-    bookForm.get("read-status"),
+    readStatus,
   );
 
   dialog.close();
@@ -50,6 +52,41 @@ function Book(title, author, pageCount, read) {
 
 function addToLibrary(name, author, pageCount, read) {
   myLibrary.push(new Book(name, author, pageCount, read));
+}
+
+function removeBook(e) {
+  let display = e.target.parentElement.parentElement;
+  let bookID = display.dataset.bookId;
+
+  for (let l = 0; l < myLibrary.length; l++) {
+    if (myLibrary[l].id == bookID) {
+      myLibrary.splice(l, 1);
+      break;
+    }
+  }
+
+  display.parentElement.removeChild(display);
+}
+
+function toggleRead(e) {
+  let button = e.target;
+  let display = button.parentElement.parentElement;
+  let bookID = display.dataset.bookId;
+
+  let status = false;
+  for (let l = 0; l < myLibrary.length; l++) {
+    if (myLibrary[l].id == bookID) {
+      status = !myLibrary[l].read;
+      myLibrary[l].read = status;
+      break;
+    }
+  }
+
+  if (status) {
+    button.setAttribute("src", "./images/book-check.svg");
+  } else {
+    button.setAttribute("src", "./images/book-clock.svg");
+  }
 }
 
 function addBookDisplay() {
@@ -82,7 +119,7 @@ function addBookDisplay() {
   pageCountString = `${lastBook.pageCount} pages`;
   readIcon = "./images/";
 
-  if (lastBook.read) {
+  if (lastBook.read === "on") {
     readIcon += "book-check.svg";
   } else {
     readIcon += "book-clock.svg";
@@ -95,6 +132,9 @@ function addBookDisplay() {
 
   toggleReadButton.setAttribute("src", readIcon);
   removeButton.setAttribute("src", "./images/minus.svg");
+
+  removeButton.addEventListener("click", removeBook);
+  toggleReadButton.addEventListener("click", toggleRead);
 
   removeContainer.appendChild(removeButton);
   toggleReadContainer.appendChild(toggleReadButton);
