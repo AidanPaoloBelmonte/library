@@ -54,32 +54,56 @@ function addToLibrary(name, author, pageCount, read) {
 
 function addBookDisplay() {
   let display = document.createElement("div");
+
   let titleDisplay = document.createElement("div");
   let authorDisplay = document.createElement("div");
   let pageCountDisplay = document.createElement("div");
-  let toggleReadButton = document.createElement("div");
-  let removeButton = document.createElement("div");
+  let toggleReadContainer = document.createElement("div");
+  let removeContainer = document.createElement("div");
+
+  let toggleReadButton = document.createElement("input");
+  let removeButton = document.createElement("input");
 
   display.classList.add("books");
+
   titleDisplay.classList.add("title", "centerize");
   authorDisplay.classList.add("author", "pad");
   pageCountDisplay.classList.add("page-count", "pad");
-  toggleReadButton.classList.add("toggle-read", "centerize");
-  removeButton.classList.add("remove", "centerize");
+  removeContainer.classList.add("remove", "centerize");
+  toggleReadContainer.classList.add("toggle-read", "centerize");
+
+  toggleReadButton.classList.add("book-action");
+  toggleReadButton.setAttribute("type", "image");
+  removeButton.classList.add("book-action");
+  removeButton.setAttribute("type", "image");
 
   lastBook = myLibrary[myLibrary.length - 1];
   titleString = `"${lastBook.title}"`;
   pageCountString = `${lastBook.pageCount} pages`;
+  readIcon = "./images/";
 
+  if (lastBook.read) {
+    readIcon += "book-check.svg";
+  } else {
+    readIcon += "book-clock.svg";
+  }
+
+  display.setAttribute("data-book-id", lastBook.id);
   titleDisplay.textContent = titleString;
   authorDisplay.textContent = lastBook.author;
   pageCountDisplay.textContent = pageCountString;
 
+  toggleReadButton.setAttribute("src", readIcon);
+  removeButton.setAttribute("src", "./images/minus.svg");
+
+  removeContainer.appendChild(removeButton);
+  toggleReadContainer.appendChild(toggleReadButton);
+
   display.appendChild(titleDisplay);
   display.appendChild(authorDisplay);
   display.appendChild(pageCountDisplay);
-  display.appendChild(toggleReadButton);
-  display.appendChild(removeButton);
+  display.appendChild(removeContainer);
+  display.appendChild(toggleReadContainer);
 
   bookshelf.appendChild(display);
 }

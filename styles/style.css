@@ -104,11 +104,11 @@ h1 {
     grid-area: 6 / 1 / span 1 / span 4;
 }
 
-.toggle-read {
-    grid-area: 8 / 3 / span 1 / span 1;
+.remove {
+    grid-area: 8 / 1 / span 1 / span 1;
 }
 
-.remove {
+.toggle-read {
     grid-area: 8 / 4 / span 1 / span 1;
 }
 
@@ -120,6 +120,10 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.book-action {
+    padding: 18px;
 }
 
 dialog {
