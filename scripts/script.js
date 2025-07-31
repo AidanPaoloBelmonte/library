@@ -80,6 +80,7 @@ function toggleRead(e) {
   for (let l = 0; l < myLibrary.length; l++) {
     if (myLibrary[l].id == bookID) {
       myLibrary[l].toggleRead();
+      status = myLibrary[l];
       break;
     }
   }
