@@ -77,6 +77,46 @@ h1 {
 .books {
     border: 3px dotted deepskyblue;
     border-radius: 12px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+}
+
+#title {
+    grid-area: 1 / 1 / span 4 / span 4;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+#author {
+    grid-area: 5 / 1 / span 1 / span 4;
+}
+
+#page-count {
+    grid-area: 6 / 1 / span 1 / span 4;
+}
+
+#toggle-read {
+    grid-area: 8 / 3 / span 1 / span 1;
+}
+
+#remove {
+    grid-area: 8 / 4 / span 1 / span 1;
+}
+
+.pad {
+    padding: 2px 8px;
+}
+
+.centerize {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 dialog {
