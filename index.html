@@ -13,25 +13,31 @@
         <div id="base">
             <div id="header">
                 <h1>Library</h1>
-                <button type="button">Add Book</button>
+                <button type="button" class="main-button">Add Book</button>
             </div>
             <div id="bookshelf">
                 <div class="books"></div>
             </div>
 
             <dialog>
-                <form>
-                    <label for="">Title:</label>
-                    <input type="field" required />
-                    <label for="">Author:</label>
-                    <input type="field" required />
-                    <label for="">Page Count:</label>
-                    <input type="field" required />
-                    <label for="">Read Status:</label>
-                    <input type="field" required />
+                <div id="dialog-container">
+                    <form>
+                        <h2>New Book</h2>
 
-                    <button type="submit">Add Book</button>
-                </form>
+                        <label for="">Title:</label>
+                        <input type="field" required />
+                        <label for="">Author:</label>
+                        <input type="field" required />
+                        <label for="">Page Count:</label>
+                        <input type="field" required />
+                        <label for="">Read Status:</label>
+                        <input type="field" required />
+
+                        <button type="submit" class="main-button">
+                            Add Book
+                        </button>
+                    </form>
+                </div>
             </dialog>
         </div>
     </body>
