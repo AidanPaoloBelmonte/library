@@ -80,7 +80,7 @@ function toggleRead(e) {
   for (let l = 0; l < myLibrary.length; l++) {
     if (myLibrary[l].id == bookID) {
       myLibrary[l].toggleRead();
-      status = myLibrary[l];
+      status = myLibrary[l].read;
       break;
     }
   }
@@ -124,7 +124,6 @@ function addBookDisplay() {
   pageCountString = `${lastBook.pageCount} pages`;
   readIcon = "./images/";
 
-  console.log(lastBook.read);
   if (lastBook.read) {
     readIcon += "book-check.svg";
   } else {
