@@ -85,27 +85,30 @@ h1 {
     grid-auto-rows: 1fr;
 }
 
-#title {
+.title {
     grid-area: 1 / 1 / span 4 / span 4;
 
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
     text-align: center;
 }
 
-#author {
+.author {
     grid-area: 5 / 1 / span 1 / span 4;
+
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
-#page-count {
+.page-count {
     grid-area: 6 / 1 / span 1 / span 4;
 }
 
-#toggle-read {
+.toggle-read {
     grid-area: 8 / 3 / span 1 / span 1;
 }
 
-#remove {
+.remove {
     grid-area: 8 / 4 / span 1 / span 1;
 }
 
@@ -169,7 +172,7 @@ form label {
 }
 
 form input {
-    padding-left: 8px;
+    padding-left: 4px;
     border: 0px;
 
     border-radius: 12px;
@@ -182,4 +185,10 @@ form button {
     align-self: flex-end;
 
     font-size: 1rem;
+}
+
+.align {
+    border-radius: 12px;
+
+    align-self: flex-start;
 }

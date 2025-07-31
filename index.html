@@ -19,13 +19,11 @@
             </div>
             <div id="bookshelf">
                 <div class="books">
-                    <div id="title" class="centerize">
-                        "The Duckling which is Ugly"
-                    </div>
-                    <div id="author" class="pad">by: Ducker Man</div>
-                    <div id="page-count" class="pad">Pages: 1289</div>
-                    <div id="toggle-read" class="centerize">!</div>
-                    <div id="remove" class="centerize">-</div>
+                    <div class="title centerize"></div>
+                    <div class="author pad"></div>
+                    <div class="page-count pad"></div>
+                    <div class="toggle-read centerize"></div>
+                    <div class="remove centerize"></div>
                 </div>
             </div>
 
@@ -39,9 +37,13 @@
                         <label for="author">Author:</label>
                         <input name="author" type="field" required />
                         <label for="page-count">Page Count:</label>
-                        <input name="page-count" type="field" required />
+                        <input name="page-count" type="number" required />
                         <label for="read-status">Read Status:</label>
-                        <input name="read-status" type="field" required />
+                        <input
+                            name="read-status"
+                            type="checkbox"
+                            class="align"
+                        />
 
                         <button
                             type="submit"
