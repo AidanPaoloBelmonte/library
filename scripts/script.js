@@ -1,4 +1,12 @@
+const dialog = document.querySelector("dialog");
+const addBookButton = document.querySelector("#add-book");
+
 const myLibrary = [];
+
+// Events
+addBookButton.addEventListener("click", () => {
+  dialog.showModal();
+});
 
 function Book(title, author, pageCount, read) {
   if (!new.target) {
@@ -18,5 +26,3 @@ function addToLibrary(name, author, pageCount, read) {
   let book = new Book(name, author, pageCount, read);
   myLibrary.push(book);
 }
-
-let displayText = "";
